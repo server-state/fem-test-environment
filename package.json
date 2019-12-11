@@ -4,7 +4,7 @@
   "description": "A test environment for the client base modules",
   "main": "index.js",
   "scripts": {
-    "test": "jest tests",
+    "test": "mkdir -p test-src && cp -r src/* test-src/ && node tests/replace-magic-vars.js && jest tests",
     "build": "webpack --config webpack.config.js --mode production"
   },
   "repository": {
