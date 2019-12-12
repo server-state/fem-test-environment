@@ -6,7 +6,7 @@ function MyCBM(props) {
     return (
         <div>
             <Typography>
-                My CBM module!
+                Empty CBM module
             </Typography>
             <Typography>
                 Data: {JSON.stringify(props.data, null, 2)}

@@ -2,10 +2,9 @@
   "name": "@server-state/cbm-test-environment",
   "version": "0.0.9",
   "description": "A test environment for the client base modules",
-  "main": "src/index.js",
   "scripts": {
     "test": "grunt before-test && jest tests",
-    "build": "webpack --config webpack.config.js --mode production"
+    "start": "node ./scripts/start.js"
   },
   "repository": {
     "type": "git",
@@ -17,15 +16,7 @@
     "url": "https://github.com/server-state/cbm-test-environment/issues"
   },
   "homepage": "https://github.com/server-state/cbm-test-environment#readme",
-  "peerDependencies": {
-    "@material-ui/core": "^4.7.2",
-    "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.7.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "devDependencies": {
+  "dependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
@@ -34,16 +25,23 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.7.1",
     "babel-loader": "^8.0.6",
+    "chalk": "^3.0.0",
+    "cli": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-text-replace": "^0.4.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "react-test-renderer": "^16.12.0"
   }
 }
