@@ -2,7 +2,7 @@
   "name": "@server-state/cbm-test-environment",
   "version": "0.0.9",
   "description": "A test environment for the client base modules",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "grunt before-test && jest tests",
     "build": "webpack --config webpack.config.js --mode production"
