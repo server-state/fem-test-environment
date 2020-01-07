@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 /**
  * Generate a new cbm test environment webpack compiler configuration.
@@ -24,7 +25,11 @@ module.exports = function(paths) {
             publicPath: '/'
         },
         resolve: {
-            extensions: ['.js', '.jsx']
+            extensions: ['.js', '.jsx'],
+            alias: {
+                cbmSrcIndex: path.resolve(paths.cbmSrcIndex),
+                cbmSrcSamples: path.resolve(paths.cbmSrcSamples)
+            }
         },
         module: {
             rules: [
@@ -65,10 +70,6 @@ module.exports = function(paths) {
             }),
             new webpack.HotModuleReplacementPlugin(),
             // replaces global variables in all source files
-            new webpack.DefinePlugin({
-                __CBMPATH__: paths.cbmSrcIndex,
-                __SAMPLESPATH__: paths.cbmSrcSamples
-            })
         ]
     }
 };
