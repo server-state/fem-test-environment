@@ -15,8 +15,10 @@ module.exports = function(paths) {
         overlay: true,
         // server configuration
         compress: true,
+        open: true,
         hot: true,
         contentBase: paths.testEnvPublic,
-        publicPath: '/'
+        publicPath: '/',
+        watchContentBase: true
     };
 };

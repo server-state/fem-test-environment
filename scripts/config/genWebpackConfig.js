@@ -29,7 +29,8 @@ module.exports = function(paths) {
             alias: {
                 cbmSrcIndex: path.resolve(paths.cbmSrcIndex),
                 cbmSrcSamples: path.resolve(paths.cbmSrcSamples)
-            }
+            },
+            modules: [path.resolve(paths.cbmRoot, 'node_modules'), 'node_modules']
         },
         module: {
             rules: [
@@ -61,6 +62,7 @@ module.exports = function(paths) {
                 }
             ]
         },
+        devtool: 'source-map',
         plugins: [
             // generates a valid html index file for development server
             new HTMLWebpackPlugin({
@@ -68,8 +70,7 @@ module.exports = function(paths) {
                 filename: 'index.html'
                 //inject: 'body'
             }),
-            new webpack.HotModuleReplacementPlugin(),
-            // replaces global variables in all source files
+            new webpack.HotModuleReplacementPlugin()
         ]
     }
 };

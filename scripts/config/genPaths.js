@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // constant paths
-const testEnvRoot = path.resolve('./');
+const testEnvRoot = path.resolve(__dirname, '../../');
 const testEnvPublic = path.join(testEnvRoot, 'public');
 const testEnvPublicHTML = path.join(testEnvPublic, 'index.html');
 const testEnvSrc = path.join(testEnvRoot, 'src');
@@ -23,7 +23,7 @@ module.exports = function(externalCbmPath) {
     let cbmSrc;
     if (externalCbmPath) {
         // external path given -> do checks
-        cbmRoot = path.dirname(path.resolve(externalCbmPath));
+        cbmRoot = path.resolve(externalCbmPath);
         cbmSrc = path.join(cbmRoot, 'src');
     } else {
         // no external path given -> use empty cbm
@@ -31,6 +31,8 @@ module.exports = function(externalCbmPath) {
         cbmSrc = path.join(cbmRoot, 'src/empty-cbm');
     }
 
+    console.log('CBM Root:', cbmRoot);
+    console.log('CBM package.json', path.join(cbmRoot, 'package.json'));
     if (!fs.existsSync(path.join(cbmRoot, 'package.json'))) {
         throw 'No package.json found. Please make sure that you\'re using a cbm directory.';
     }

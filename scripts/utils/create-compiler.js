@@ -22,7 +22,7 @@ module.exports = function(config) {
     compiler.hooks.beforeCompile.tap('invalid', () => {
         // nice user output, so no usage of cli tool
         if (isInteractive) {
-            clearConsole();
+            //clearConsole();
         }
         console.log(chalk.yellow.bold('Compiling ...'));
     });
@@ -30,7 +30,7 @@ module.exports = function(config) {
     compiler.hooks.done.tap('done', stats => {
         // nice user output, so no usage of cli tool
         if (isInteractive) {
-            clearConsole();
+            //clearConsole();
         }
 
         const statsRes = stats.toJson({

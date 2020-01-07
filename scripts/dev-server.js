@@ -45,12 +45,12 @@ module.exports = function(externalCbmPath) {
     cli.debug('Start development server');
     devServer.listen(PORT, HOST, err => {
         if (err) {
-            clearConsole();
+            //clearConsole();
             console.log(chalk.red.bold('Can not compile.'));
             console.log(err);
         }
         if (isInteractive) {
-            clearConsole();
+            //clearConsole();
         }
 
         console.log(chalk.cyan.bold('Starting CBM test environment ...'));
