@@ -42,6 +42,6 @@
     "grunt-text-replace": "^0.4.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^25.1.0",
-    "react-test-renderer": "^16.12.0"
+    "react-test-renderer": "^16.13.0"
   }
 }
