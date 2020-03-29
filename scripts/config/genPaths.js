@@ -30,6 +30,7 @@ module.exports = function(externalCbmPath) {
         cbmRoot = testEnvRoot;
         cbmSrc = path.join(cbmRoot, 'src/empty-cbm');
     }
+    const cbmPackageJSON = path.join(cbmRoot, 'package.json');
 
     console.log('CBM Root:', cbmRoot);
     console.log('CBM package.json', path.join(cbmRoot, 'package.json'));
@@ -60,6 +61,7 @@ module.exports = function(externalCbmPath) {
         testEnvSrcIndex,
         cbmRoot,
         cbmSrc,
+        cbmPackageJSON,
         cbmSrcIndex,
         cbmSrcSamples,
         cbmDist
