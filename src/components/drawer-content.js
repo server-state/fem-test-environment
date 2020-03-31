@@ -6,6 +6,12 @@ import {
 } from '@material-ui/core';
 
 
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-json";
+import "ace-builds/src-noconflict/theme-xcode";
+
+
 const useStyles = makeStyles(theme => ({
     infoBox: {
         padding: theme.spacing(1, 2)
@@ -19,8 +25,8 @@ function DrawerContent(props) {
         props.onSelected(event.target.value);
     };
 
-    const handleChange = (event) => {
-        props.onChange(event.target.value);
+    const handleChange = (newValue) => {
+        props.onChange(newValue);
     };
 
     return (
@@ -70,15 +76,16 @@ function DrawerContent(props) {
                             control={<Radio />}
                         />
                     </RadioGroup>
-                    <TextField
-                        label="Data sample"
-                        multiline
-                        value={props.textFieldValue}
+                    <AceEditor 
+                        width="100%"
+                        height="200px"
+                        mode="json"
+                        theme="xcode"
                         onChange={handleChange}
-                        className={classes.textField}
-                        margin="dense"
-                        variant="outlined"
-                        error={props.isError}
+                        name="UNIQUE_ID_OF_DIV"
+                        editorProps={{ $blockScrolling: true }}
+
+                        value={props.textFieldValue}
                     />
                 </FormControl>
             </div>
