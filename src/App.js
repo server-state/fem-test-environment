@@ -8,6 +8,7 @@ import SimpleDashboard from './components/simple-dashboard';
 
 import CBM from 'cbmSrcIndex';
 import sampleData from 'cbmSrcSamples';
+import CBMPackage from 'cbmPackageJSON';
 
 const defaultData = [{
     name: 'Default',
@@ -27,6 +28,28 @@ function checkSampleData(data) {
     }
 }
 
+function generateInfos(packageJSON) {
+    const packageFilter = [ 'id', 'name', 'description', 'version' ];
+
+    // filter useful information out of cbm package.json
+    const cbmInfos = Object.keys(packageJSON)
+        .filter(key => packageFilter.includes(key))
+        .reduce((obj, key) => {
+            obj[key] = packageJSON[key];
+            return obj;
+        }, {});
+
+    // convert non identical information to specification
+    cbmInfos['support_url'] = packageJSON.bugs || null;
+    cbmInfos['website'] = packageJSON.homepage || null;
+
+    cbmInfos['repo_url'] = packageJSON.repository && packageJSON.repository.url
+        ? packageJSON.repository.url.split('+')[1] || null
+        : null;
+    
+    return cbmInfos
+}
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -38,8 +61,11 @@ export default class App extends React.Component {
             data,
             selected: data[0],
             textFieldValue: '',
-            isError: false
+            isError: false,
+            info: generateInfos(CBMPackage)
         };
+        
+        console.log(this.state.info);
 
         this.handleSelected = this.handleSelected.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -78,7 +104,7 @@ export default class App extends React.Component {
                 <AppBar
                     drawerContent={
                         <DrawerContent
-                            info={CBM.info}
+                            info={this.state.info}
                             data={this.state.data}
                             selected={this.state.selected}
                             onSelected={this.handleSelected}
@@ -89,7 +115,7 @@ export default class App extends React.Component {
                     }
                 >
                     <SimpleDashboard
-                        info={CBM.info}
+                        info={this.state.info}
                     >
                         <CBM.component data={this.state.selected.data} />
                     </SimpleDashboard>

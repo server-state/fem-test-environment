@@ -28,7 +28,8 @@ module.exports = function(paths) {
             extensions: ['.js', '.jsx'],
             alias: {
                 cbmSrcIndex: path.resolve(paths.cbmSrcIndex),
-                cbmSrcSamples: path.resolve(paths.cbmSrcSamples)
+                cbmSrcSamples: path.resolve(paths.cbmSrcSamples),
+                cbmPackageJSON: path.resolve(paths.cbmPackageJSON)
             },
             modules: [path.resolve(paths.cbmRoot, 'node_modules'), 'node_modules']
         },
@@ -37,7 +38,7 @@ module.exports = function(paths) {
                 {
                     // loader for jsx syntax
                     test: /\.jsx?$/,
-                    //exclude: /node_modules/,
+                    //exclude: /node_modules/,  // otherwise presets won't get loaded
                     use: {
                         loader: 'babel-loader',
                         options: {
