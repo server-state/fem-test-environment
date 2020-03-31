@@ -4,7 +4,7 @@ import { makeStyles, AppBar as MuiAppBar, Toolbar, Typography, IconButton, Hidde
 import MenuIcon from '@material-ui/icons/Menu';
 
 
-const drawerWidth = 240; // px
+const drawerWidth = 320; // px
 const defaultOpen = false;
 
 const useStyles = makeStyles(theme => ({
