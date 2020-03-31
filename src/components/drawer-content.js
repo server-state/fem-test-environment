@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     makeStyles, Typography,
-    FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, TextField
+    FormControl, FormLabel, RadioGroup, FormControlLabel, Radio
 } from '@material-ui/core';
 
 
@@ -33,16 +33,16 @@ function DrawerContent(props) {
         <div>
             <div className={classes.infoBox}>
                 <Typography variant="overline">
+                    Id:
+                </Typography>
+                <Typography color={props.info.id ? 'initial' : 'error'}>
+                    {props.info.id || 'No module id'}
+                </Typography>
+                <Typography variant="overline">
                     Name:
                 </Typography>
                 <Typography color={props.info.name ? 'initial' : 'error'}>
                     {props.info.name || 'No module name'}
-                </Typography>
-                <Typography variant="overline">
-                    Version:
-                </Typography>
-                <Typography color={props.info.version ? 'initial' : 'error'}>
-                    {props.info.version || 'No version info'}
                 </Typography>
                 <Typography variant="overline">
                     Description:
@@ -51,10 +51,28 @@ function DrawerContent(props) {
                     {props.info.description || 'No description'}
                 </Typography>
                 <Typography variant="overline">
-                    About:
+                    Version:
                 </Typography>
-                <Typography color={props.info.about ? 'initial' : 'error'}>
-                    {props.info.about || 'No about info'}
+                <Typography color={props.info.version ? 'initial' : 'error'}>
+                    {props.info.version || 'No version info'}
+                </Typography>
+                <Typography variant="overline">
+                    Support URL:
+                </Typography>
+                <Typography color={props.info.support_url ? 'initial' : 'error'}>
+                    {props.info.support_url || 'No support URL'}
+                </Typography>
+                <Typography variant="overline">
+                    Website:
+                </Typography>
+                <Typography color={props.info.website ? 'initial' : 'error'}>
+                    {props.info.website || 'No website'}
+                </Typography>
+                <Typography variant="overline">
+                    Repository URL:
+                </Typography>
+                <Typography color={props.info.repo_url ? 'initial' : 'error'}>
+                    {props.info.repo_url || 'No repository URL'}
                 </Typography>
             </div>
 
