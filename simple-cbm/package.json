@@ -1,0 +1,10 @@
+{
+  "name": "simple-cbm",
+  "id": "adcdef12345-simple-cbm",
+  "version": "1.0.0",
+  "description": "A very simple client base module for testing purposes",
+  "main": "src/index.js",
+  "private": true,
+  "author": "server-state",
+  "license": "MIT"
+}

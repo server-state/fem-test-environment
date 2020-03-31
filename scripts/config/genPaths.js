@@ -26,14 +26,12 @@ module.exports = function(externalCbmPath) {
         cbmRoot = path.resolve(externalCbmPath);
         cbmSrc = path.join(cbmRoot, 'src');
     } else {
-        // no external path given -> use empty cbm
-        cbmRoot = testEnvRoot;
-        cbmSrc = path.join(cbmRoot, 'src/empty-cbm');
+        // no external path given -> use simple-cbm as root in src folder
+        cbmRoot = path.join(testEnvRoot, "simple-cbm");
+        cbmSrc = path.join(cbmRoot, 'src');
     }
     const cbmPackageJSON = path.join(cbmRoot, 'package.json');
 
-    console.log('CBM Root:', cbmRoot);
-    console.log('CBM package.json', path.join(cbmRoot, 'package.json'));
     if (!fs.existsSync(path.join(cbmRoot, 'package.json'))) {
         throw 'No package.json found. Please make sure that you\'re using a cbm directory.';
     }
