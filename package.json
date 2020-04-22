@@ -1,21 +1,21 @@
 {
-  "name": "@server-state/cbm-test-environment",
+  "name": "@server-state/fem-test-environment",
   "version": "0.0.9",
-  "description": "A test environment for the client base modules",
+  "description": "A test environment for front end modules",
   "scripts": {
     "test": "grunt before-test && jest tests",
     "start": "node ./scripts/start.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/server-state/cbm-test-environment.git"
+    "url": "git+https://github.com/server-state/fem-test-environment.git"
   },
   "author": "server-state",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/server-state/cbm-test-environment/issues"
+    "url": "https://github.com/server-state/fem-test-environment/issues"
   },
-  "homepage": "https://github.com/server-state/cbm-test-environment#readme",
+  "homepage": "https://github.com/server-state/fem-test-environment#readme",
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
