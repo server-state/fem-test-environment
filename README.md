@@ -1,2 +1,2 @@
-# cbm-test-environment
-A test environment for the client base modules
+# fem-test-environment
+A test environment for front end modules
