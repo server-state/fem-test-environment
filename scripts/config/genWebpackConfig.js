@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 /**
- * Generate a new cbm test environment webpack compiler configuration.
+ * Generate a new fem test environment webpack compiler configuration.
  * @param paths the path object generated from ./genPaths.js
  * @returns {{mode: string, output: {path: string, filename: string, publicPath: string}, entry: {main: *},
  *            resolve: {extensions: [string, string]}, plugins: [*, *, *],
@@ -21,17 +21,17 @@ module.exports = function(paths) {
         },
         output: {
             filename: 'bundle.js',
-            path: paths.cbmDist,
+            path: paths.femDist,
             publicPath: '/'
         },
         resolve: {
             extensions: ['.js', '.jsx'],
             alias: {
-                cbmSrcIndex: path.resolve(paths.cbmSrcIndex),
-                cbmSrcSamples: path.resolve(paths.cbmSrcSamples),
-                cbmPackageJSON: path.resolve(paths.cbmPackageJSON)
+                femSrcIndex: path.resolve(paths.femSrcIndex),
+                femSrcSamples: path.resolve(paths.femSrcSamples),
+                femPackageJSON: path.resolve(paths.femPackageJSON)
             },
-            modules: [path.resolve(paths.cbmRoot, 'node_modules'), 'node_modules']
+            modules: [path.resolve(paths.femRoot, 'node_modules'), 'node_modules']
         },
         module: {
             rules: [

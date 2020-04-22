@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 
-function MyCBM(props) {
+function MyFEM(props) {
     return (
         <div>
             <Typography>
-                Empty CBM module
+                Empty FEM module
             </Typography>
             <Typography>
                 Data: {JSON.stringify(props.data, null, 2)}
@@ -15,8 +15,8 @@ function MyCBM(props) {
     );
 }
 
-MyCBM.propTypes = {
+MyFEM.propTypes = {
     data: PropTypes.any.isRequired
 };
 
-export default MyCBM;
+export default MyFEM;

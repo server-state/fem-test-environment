@@ -6,9 +6,9 @@ import DrawerContent from './components/drawer-content';
 import AppBar from './components/app-bar';
 import SimpleDashboard from './components/simple-dashboard';
 
-import CBM from 'cbmSrcIndex';
-import sampleData from 'cbmSrcSamples';
-import CBMPackage from 'cbmPackageJSON';
+import FEM from 'femSrcIndex';
+import sampleData from 'femSrcSamples';
+import FEMPackage from 'femPackageJSON';
 
 const defaultData = [{
     name: 'Default',
@@ -31,8 +31,8 @@ function checkSampleData(data) {
 function generateInfos(packageJSON) {
     const packageFilter = [ 'id', 'name', 'description', 'version' ];
 
-    // filter useful information out of cbm package.json
-    const cbmInfos = Object.keys(packageJSON)
+    // filter useful information out of fem package.json
+    const femInfos = Object.keys(packageJSON)
         .filter(key => packageFilter.includes(key))
         .reduce((obj, key) => {
             obj[key] = packageJSON[key];
@@ -40,14 +40,14 @@ function generateInfos(packageJSON) {
         }, {});
 
     // convert non identical information to specification
-    cbmInfos['support_url'] = packageJSON.bugs || null;
-    cbmInfos['website'] = packageJSON.homepage || null;
+    femInfos['support_url'] = packageJSON.bugs || null;
+    femInfos['website'] = packageJSON.homepage || null;
 
-    cbmInfos['repo_url'] = packageJSON.repository && packageJSON.repository.url
+    femInfos['repo_url'] = packageJSON.repository && packageJSON.repository.url
         ? packageJSON.repository.url.split('+')[1] || null
         : null;
     
-    return cbmInfos
+    return femInfos
 }
 
 export default class App extends React.Component {
@@ -62,7 +62,7 @@ export default class App extends React.Component {
             selected: data[0],
             textFieldValue: '',
             isError: false,
-            info: generateInfos(CBMPackage)
+            info: generateInfos(FEMPackage)
         };
         
         console.log(this.state.info);
@@ -117,7 +117,7 @@ export default class App extends React.Component {
                     <SimpleDashboard
                         info={this.state.info}
                     >
-                        <CBM.component data={this.state.selected.data} />
+                        <FEM.component data={this.state.selected.data} />
                     </SimpleDashboard>
                 </AppBar>
             </ThemeProvider>

@@ -15,11 +15,11 @@ const PORT = 3001;
 
 /**
  * Start webpack dev server with nice output.
- * @param {string?} [externalCbmPath] if defined: the absolute path to the external cbm
+ * @param {string?} [externalCbmPath] if defined: the absolute path to the external fem
  *                                    otherwise it will use the internal mock
  */
 module.exports = function(externalCbmPath) {
-    cli.debug('external cbm path: ' + externalCbmPath);
+    cli.debug('external fem path: ' + externalCbmPath);
     let paths = null;
     try {
         cli.debug('Generate required paths');
@@ -53,6 +53,6 @@ module.exports = function(externalCbmPath) {
             //clearConsole();
         }
 
-        console.log(chalk.cyan.bold('Starting CBM test environment ...'));
+        console.log(chalk.cyan.bold('Starting FEM test environment ...'));
     });
 };

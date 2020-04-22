@@ -8,4 +8,4 @@ cli.setApp(packageJSON.name + " (development only)", packageJSON.version);
 
 const devServer = require('./dev-server');
 
-devServer(); // use the default empty cbm
+devServer(); // use the default empty fem

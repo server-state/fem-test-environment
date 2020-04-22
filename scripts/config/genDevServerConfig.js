@@ -1,5 +1,5 @@
 /**
- * Generate a new cbm test environment webpack development server configuration.
+ * Generate a new fem test environment webpack development server configuration.
  * @param paths the path object generated from ./genPaths.js
  * @returns {{overlay: boolean, stats: string, compress: boolean, clientLogLevel: string,
  *            noInfo: boolean, hot: boolean, publicPath: string, contentBase: string}}

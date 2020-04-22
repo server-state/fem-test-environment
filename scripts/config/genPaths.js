@@ -9,47 +9,47 @@ const testEnvSrc = path.join(testEnvRoot, 'src');
 const testEnvSrcIndex = path.join(testEnvSrc, 'index.js');
 
 /**
- * A path library for the cbm test environment.
- * @param {string?} [externalCbmPath] if defined: the absolute path to the external cbm
+ * A path library for the fem test environment.
+ * @param {string?} [externalFEMPath] if defined: the absolute path to the external fem
  *                                    otherwise it will use the internal mock
- * @returns {{cbmSrc: string, testEnvRoot: string, testEnvPublic: string,
- *            cbmSrcSamples: string, testEnvPublicHTML: string, cbmRoot: string, testEnvSrcIndex: string,
- *            testEnvSrc: string, cbmSrcIndex: string, cbmDist: string}}
+ * @returns {{femSrc: string, testEnvRoot: string, testEnvPublic: string,
+ *            femSrcSamples: string, testEnvPublicHTML: string, femRoot: string, testEnvSrcIndex: string,
+ *            testEnvSrc: string, femSrcIndex: string, femDist: string}}
  *                all required paths
  */
-module.exports = function(externalCbmPath) {
+module.exports = function(externalFEMPath) {
     // dynamic paths
-    let cbmRoot;
-    let cbmSrc;
-    if (externalCbmPath) {
+    let femRoot;
+    let femSrc;
+    if (externalFEMPath) {
         // external path given -> do checks
-        cbmRoot = path.resolve(externalCbmPath);
-        cbmSrc = path.join(cbmRoot, 'src');
+        femRoot = path.resolve(externalFEMPath);
+        femSrc = path.join(femRoot, 'src');
     } else {
-        // no external path given -> use simple-cbm as root in src folder
-        cbmRoot = path.join(testEnvRoot, "simple-cbm");
-        cbmSrc = path.join(cbmRoot, 'src');
+        // no external path given -> use simple-fem as root in src folder
+        femRoot = path.join(testEnvRoot, "simple-fem");
+        femSrc = path.join(femRoot, 'src');
     }
-    const cbmPackageJSON = path.join(cbmRoot, 'package.json');
+    const femPackageJSON = path.join(femRoot, 'package.json');
 
-    if (!fs.existsSync(path.join(cbmRoot, 'package.json'))) {
-        throw 'No package.json found. Please make sure that you\'re using a cbm directory.';
+    if (!fs.existsSync(path.join(femRoot, 'package.json'))) {
+        throw 'No package.json found. Please make sure that you\'re using a fem directory.';
     }
-    if (!fs.lstatSync(cbmSrc).isDirectory()) {
-        throw 'No src/ folder found. Please make sure that you\'re using a cbm directory.';
-    }
-
-    const cbmSrcIndex = path.join(cbmSrc, 'index.js');
-    const cbmSrcSamples = path.join(cbmSrc, 'sample-data.js');
-
-    if (!fs.existsSync(cbmSrcIndex)) {
-        throw "No cbm index.js found. Please make sure that you not accidentally deleted this file.";
-    }
-    if (!fs.existsSync(cbmSrcSamples)) {
-        throw "No cbm sample-data.js found. Please make sure that you not accidentally deleted this file.";
+    if (!fs.lstatSync(femSrc).isDirectory()) {
+        throw 'No src/ folder found. Please make sure that you\'re using a fem directory.';
     }
 
-    const cbmDist = path.join(cbmRoot, 'dist');
+    const femSrcIndex = path.join(femSrc, 'index.js');
+    const femSrcSamples = path.join(femSrc, 'sample-data.js');
+
+    if (!fs.existsSync(femSrcIndex)) {
+        throw "No fem index.js found. Please make sure that you not accidentally deleted this file.";
+    }
+    if (!fs.existsSync(femSrcSamples)) {
+        throw "No fem sample-data.js found. Please make sure that you not accidentally deleted this file.";
+    }
+
+    const femDist = path.join(femRoot, 'dist');
 
     return {
         testEnvRoot,
@@ -57,11 +57,11 @@ module.exports = function(externalCbmPath) {
         testEnvPublicHTML,
         testEnvSrc,
         testEnvSrcIndex,
-        cbmRoot,
-        cbmSrc,
-        cbmPackageJSON,
-        cbmSrcIndex,
-        cbmSrcSamples,
-        cbmDist
+        femRoot,
+        femSrc,
+        femPackageJSON,
+        femSrcIndex,
+        femSrcSamples,
+        femDist
     };
 };

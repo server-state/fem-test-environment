@@ -1,6 +1,6 @@
-import MyCBM from './my-cbm';
+import MyFEM from './my-fem';
 
 export default {
-    component: MyCBM,
+    component: MyFEM,
     // logoUrl: "/path/to/logo or base64" // optional
 };

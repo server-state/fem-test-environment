@@ -58,7 +58,7 @@ function AppBar(props) {
             <MuiAppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
-                        CBM Test Environment
+                        FEM Test Environment
                     </Typography>
                     <IconButton
                         edge="end"
@@ -112,7 +112,7 @@ function AppBar(props) {
             </nav>
         </div>
     );
-};
+}
 
 AppBar.propTypes = {
     children: PropTypes.element,

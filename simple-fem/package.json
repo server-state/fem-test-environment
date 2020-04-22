@@ -1,0 +1,10 @@
+{
+  "name": "simple-fem",
+  "id": "adcdef12345-simple-fem",
+  "version": "1.0.0",
+  "description": "A very simple front end module for testing purposes",
+  "main": "src/index.js",
+  "private": true,
+  "author": "server-state",
+  "license": "MIT"
+}

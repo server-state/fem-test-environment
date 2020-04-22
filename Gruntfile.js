@@ -15,11 +15,11 @@ module.exports = function(grunt) {
                 src: ['src/App.js'],
                 dest: 'test-src/',
                 replacements: [{
-                    from: 'cbmSrcIndex',
-                    to: '../tests/mock-cbm/index'
+                    from: 'femSrcIndex',
+                    to: '../tests/mock-fem/index'
                 }, {
-                    from: 'cbmSrcSamples',
-                    to: '../tests/mock-cbm/sample-data'
+                    from: 'femSrcSamples',
+                    to: '../tests/mock-fem/sample-data'
                 }]
             }
         }
