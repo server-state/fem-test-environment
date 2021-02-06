@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/server-state/fem-test-environment#readme",
   "dependencies": {
-    "@babel/cli": "^7.12.10",
+    "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
