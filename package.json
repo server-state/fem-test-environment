@@ -28,7 +28,7 @@
     "babel-loader": "^8.2.2",
     "chalk": "^4.1.0",
     "cli": "^1.0.1",
-    "html-webpack-plugin": "^5.0.0",
+    "html-webpack-plugin": "^5.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-ace": "^9.3.0",
